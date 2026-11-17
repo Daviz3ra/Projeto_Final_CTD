@@ -1,0 +1,19 @@
+library IEEE;
+use IEEE.Std_Logic_1164.all;
+
+entity controle is
+port( end_money, end_round: in std_logic;
+		enter_end, enter, reset,clk: in std_logic;
+		R1, R2, E1, E2, E3, E4, E5, E6: out std_logic);
+end controle; 
+
+architecture arqc of controle is
+
+type STATES is (START, SETUP, PLAY0, PLAY1, PLAY2, COUNT_ROUND, CHECK_UEIT, RESET_SEQ, RESULT); 
+signal EA, PE: STATES;
+
+begin 
+
+-- a preencher pel@ alun@
+
+end arqc;
