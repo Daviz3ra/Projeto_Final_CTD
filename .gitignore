@@ -11,3 +11,5 @@ simulation/
 *.pin
 *.sof
 *.txt
+*.qsf
+*.qpf
