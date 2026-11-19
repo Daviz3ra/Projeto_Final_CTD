@@ -10,7 +10,7 @@ entity counter_prize is port (
 								clock, enable, set_money: in std_logic);
 end counter_prize;
 
-architecture arq of counter_prize is
+architecture arq_cprize of counter_prize is
 	signal tot: std_logic_vector(25 downto 0);
 begin
 -- Registrador e Somador:
@@ -28,4 +28,4 @@ end process;
 
 bin_money <= tot;
 
-end arq;
+end arq_cprize;

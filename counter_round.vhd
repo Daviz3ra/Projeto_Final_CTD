@@ -9,7 +9,7 @@ entity counter_round is port (
 								tc: out std_logic);
 end counter_round;
 
-architecture arq of counter_round is
+architecture arq_cround of counter_round is
 	signal tot: std_logic_vector(4 downto 0);
 begin
 -- Registrador e Somador:
@@ -32,4 +32,4 @@ x <= tot;
 	tc <= '1' when (tot = "00000") else
 	'0';
 
-end arq;
+end arq_cround;
