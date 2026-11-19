@@ -3,12 +3,12 @@ use IEEE.Std_Logic_1164.all;
 
 entity mux4_1 is
 	port (
-		F1: in std_logic_vector(3 downto 0);
-		F2: in std_logic_vector(3 downto 0);
-		F3: in std_logic_vector(3 downto 0);
-		F4: in std_logic_vector(3 downto 0);
+		F1: in std_logic;
+		F2: in std_logic;
+		F3: in std_logic;
+		F4: in std_logic;
 		sel: in std_logic_vector(1 downto 0);
-		F: out std_logic_vector(3 downto 0)
+		F: out std_logic
 	);
 end mux4_1;
 
