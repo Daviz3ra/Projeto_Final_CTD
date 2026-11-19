@@ -28,4 +28,4 @@ architecture decodificador of decod_term is
                 "000000000000000111" when X = "00010" else
                 "000000000000000011" when X = "00001" else
                 "000000000000000001";
-end architecture;
+end decodificador;
