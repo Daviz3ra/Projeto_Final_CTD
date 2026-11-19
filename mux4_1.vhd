@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.Std_Logic_1164.all;
 
-entity mux is
+entity mux4_1 is
 	port (
 		F1: in std_logic_vector(3 downto 0);
 		F2: in std_logic_vector(3 downto 0);
@@ -10,13 +10,13 @@ entity mux is
 		sel: in std_logic_vector(1 downto 0);
 		F: out std_logic_vector(3 downto 0)
 	);
-end mux;
+end mux4_1;
 
-architecture circuito of mux is
+architecture arq_mux4_1 of mux4_1 is
 begin
 	F <= F1 when sel = "00" else
 					F2 when sel = "01" else
 					F3 when sel = "10" else
 					F4;
-end circuito;
+end arq_mux4_1;
 
