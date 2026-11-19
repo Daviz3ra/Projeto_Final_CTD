@@ -34,6 +34,7 @@ begin
 			case EA is
 				when START =>
 					R1 <= '1';
+					R2 <= '1';
 					PE <= SETUP;
 				when SETUP =>
 					E1 <= '1';
@@ -75,6 +76,7 @@ begin
 						PE <= EA;
 					end if;
 				when RESULT =>
+					E6 <= '1';
 					if enter = '1' then
 						PE <= START;
 					else
