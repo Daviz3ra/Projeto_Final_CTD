@@ -35,14 +35,14 @@ sel: in std_logic_vector(1 downto 0);
 F: out std_logic);
 end component;
 
-component mux262 is 
+component mux2_1_26bits is 
 port(F1, F2: in std_logic_vector(25 downto 0);
 		sel: in std_logic;
 		F: out std_logic_vector(25 downto 0)
 );
 end component;
 
-component mux72 is
+component mux2_1_7bits is
 port(F1, F2: in std_logic_vector(6 downto 0);
 		sel: in std_logic;
 		F: out std_logic_vector(6 downto 0));
@@ -61,7 +61,7 @@ port (R: in std_logic;
 	  X : out std_logic_vector(4 downto 0));
 end component;
 
-component Counter_Prize is
+component counter_prize is
 port (load: in std_logic_vector(25 downto 0);
 	  R,E,clk: in std_logic;
 	  SET: in std_logic_vector(11 downto 0);
@@ -81,7 +81,7 @@ port (clk: in std_logic;
         CLK_2Hz, CLK_3Hz, CLK_4Hz, CLK_5Hz: out std_logic);
 end component;
 
-component decodtermo is 
+component decod_term is 
 port (X: in  std_logic_vector(4 downto 0);
 		S: out std_logic_vector(17 downto 0));
 end component;
