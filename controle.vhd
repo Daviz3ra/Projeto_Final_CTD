@@ -15,7 +15,7 @@ signal EA, PE: STATES;
 begin 
 		P1: process(clk, reset)
 		begin
-			if reset = '0' then
+			if reset = '1' then
 				EA <= START;
 			elsif clk'event and clk= '1' then
 				EA <= PE;
