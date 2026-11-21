@@ -19,8 +19,8 @@ begin
 	if (set17 = '1') then
 		tot <= "10001";
 	elsif (clock'event AND clock = '1') then
-		if (enable = '1') then
-			tot <= tot - 1;
+		if (enable = '1' and tot /= "00000") then
+    	tot <= tot - 1;
 		end if;
 	end if;
 end process;
