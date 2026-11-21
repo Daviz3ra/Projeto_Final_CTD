@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.Std_Logic_1164.all;
 
 entity datapath is 
-port( SW: in std_logic_vector(17 downto 0);
+port(SW: in std_logic_vector(17 downto 0);
 	clk, R1, R2, E1, E2, E3, E4, E5, E6: in std_logic;
 	LEDR: out std_logic_vector(17 downto 0);
 	HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7: out std_logic_vector(6 downto 0);
@@ -105,21 +105,24 @@ end component;
 
 
 -------------------------------SINAIS---------------------------------------------
-signal SPEED, SEL_MUX,doubling, E, sel: std_logic;
+signal SPEED, SEL_MUX,doubling, E, sel, RST_SEQ: std_logic;
 signal SPEED_MUX: std_logic_vector(1 downto 0);
 signal X: std_logic_vector(4 downto 0);
-signal clk2hz, clk3hz, clk4hz, clk5Hz: std_logic;
+signal CLK2Hz, CLK3Hz, CLK4Hz, CLK5Hz: std_logic;
 signal INIT_MONEY, SEQ: std_logic_vector(11 downto 0);
-signal PRIZE, PRIZE_OUT, BIN_MONEY,MONEY_MUX, DOUBLE_BIN_MONEY: std_logic_vector(25 downto 0);
+signal PRIZE, PRIZE_OUT, BIN_MONEY,MONEY_MUX: std_logic_vector(25 downto 0);
+signal PRIZE_27: std_logic_vector(26 downto 0);
 signal MONEY: std_logic_vector(31 downto 0);
-signal Rst: std_logic;
 signal SEQ_0, SEQ_1, SEQ_2: std_logic_vector(3 downto 0);
-signal D00, D01, D10, D11, D20, D21, D30, D40, D50, D60, D70: std_logic_vector(6 downto 0);
+signal D00, D01, D10, D11, D20, D21, D30, D31, D40, D41, D50, D51, D60, D61, D70, D71, BLANK, ZEROS: std_logic_vector(6 downto 0);
 
 
 
 begin 
 
+RST_SEQ <= R1 or R2;
+BLANK <= "1111111";
+ZEROS <= "0000000";
 
 
 DIV_FREQ_EMU: div_Freq port map(clk,R1,clk2hz,clk3hz,clk4hz,clk5Hz); --Usar esse componente para o emulador
