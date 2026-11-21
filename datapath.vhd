@@ -105,7 +105,7 @@ end component;
 
 
 -------------------------------SINAIS---------------------------------------------
-signal SPEED, SEL_MUX,doubling, E, sel, RST_SEQ: std_logic;
+signal SPEED, SEL_MUX,doubling, EN_counter_round, sel_speed, RST_SEQ: std_logic;
 signal SPEED_MUX: std_logic_vector(1 downto 0);
 signal X: std_logic_vector(4 downto 0);
 signal CLK2Hz, CLK3Hz, CLK4Hz, CLK5Hz: std_logic;
@@ -125,23 +125,26 @@ RST_SEQ <= R1 or R2;
 BLANK <= "1111111";
 ZEROS <= "0000000";
 SEL_MUX <= (SW(17) or E4) or (E3 or E2);
-PRIZE_OUT <= PRIZE(25 downto 0);
-Doubling <= PRIZE(26);
+PRIZE_OUT <= PRIZE_27(25 downto 0);
+Doubling <= PRIZE_27(26);
+end_money <= BIN_MONEY(25);
+sel_speed <= (Doubling and E5);
+EN_counter_round <= ((CLK2Hz and E6) or E5);
 
 DIV_FREQ_EMU: div_Freq port map(clk,R1,CLK2Hz,CLK3Hz,CLK4Hz,CLK5Hz); --Usar esse componente para o emulador
 --DIVFREQ: div_Freq_DE2 port map(clk,R1,CLK2Hz,CLK3Hz,CLK4Hz,CLK5Hz); --Usar esse componente para a placa DE2
 MUX_SPEED: mux4_1 port map(CLK2Hz,CLK3Hz,CLK4Hz,CLK5Hz,SPEED_MUX,SPEED);
 REG: reg12 port map(clk,R2,E1,SW(11 downto 0),INIT_MONEY);
-COUNTER_PRIZE_: counter_prize port map(PRIZE,INIT_MONEY,BIN_MONEY,clk,E5,E1);
-MUX26_1: mux2_1_26bits port map(PRIZE_OUT,BIN_MONEY,(Doubling and E5),PRIZE);
-COUNTER_ROUND_: counter_round port map(X,clk,((CLK2Hz and E6) or E5),R1,end_round);
-DECOD_PRIZE_: decod_prize port map(SEQ, PRIZE_27);
+COUNTER_PRIZE_X: counter_prize port map(PRIZE,INIT_MONEY,BIN_MONEY,clk,E5,E1);
+MUX26_1: mux2_1_26bits port map(PRIZE_OUT,BIN_MONEY,sel_speed,PRIZE);
+COUNTER_ROUND_X: counter_round port map(X,clk,EN_counter_round,R1,end_round);
+DECOD_PRIZE_X: decod_prize port map(SEQ, PRIZE_27);
 MUX26_2: mux2_1_26bits port map(BIN_MONEY,"00000000000000000000000000",BIN_MONEY(25),MONEY_MUX);
-BIN_BCD_: Bin_BCD port map(MONEY_MUX,MONEY);
-SEQ0_: seq0 port map(SPEED,RST_SEQ,E2,SEQ_0);
-SEQ1_: seq1 port map(SPEED,RST_SEQ,E3,SEQ_1);
-SEQ2_: seq2 port map(SPEED,RST_SEQ,E4,SEQ_2);
-DECOD_TERM_: decod_term port map(X,LEDR);
+BIN_BCD_X: Bin_BCD port map(MONEY_MUX,MONEY);
+SEQ0_X: seq0 port map(SPEED,RST_SEQ,E2,SEQ_0);
+SEQ1_X: seq1 port map(SPEED,RST_SEQ,E3,SEQ_1);
+SEQ2_X: seq2 port map(SPEED,RST_SEQ,E4,SEQ_2);
+DECOD_TERM_X: decod_term port map(X,LEDR);
 DECOD7SEG0_0: decod7seg port map(MONEY(3 downto 0),D00);
 DECOD7SEG0_1: decod7seg port map(SEQ_0,D01);
 DECOD7SEG1_0: decod7seg port map(MONEY(7 downto 4),D10);
@@ -161,5 +164,6 @@ MUX7_4: mux2_1_7bits port map(D40,BLANK,SEL_MUX,HEX4);
 MUX7_5: mux2_1_7bits port map(D50,BLANK,SEL_MUX,HEX5);
 MUX7_6: mux2_1_7bits port map(D60,BLANK,SEL_MUX,HEX6);
 MUX7_7: mux2_1_7bits port map(D70,BLANK,SEL_MUX,HEX7);
+SELECTOR_X: selector port map(X,SPEED_MUX);
 
 end arqdtp;
