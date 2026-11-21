@@ -2,10 +2,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity decod_prize is
-    port (
-        seq_12bits : in  std_logic_vector(11 downto 0); -- HEX2 & HEX1 & HEX0
-        prize      : out std_logic_vector(26 downto 0)  -- Bit 26: Double | Bits 25..0: Valor em binário
-    );
+port (seq_12bits : in  std_logic_vector(11 downto 0); -- HEX2 & HEX1 & HEX0
+    prize: out std_logic_vector(26 downto 0)); 
 end entity decod_prize;
 
 architecture Behavioral of decod_prize is

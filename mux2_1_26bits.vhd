@@ -2,12 +2,9 @@ library IEEE;
 use IEEE.Std_Logic_1164.all;
 
 entity mux2_1_26bits is
-	port (
-		F1: in std_logic_vector(25 downto 0);
-		F2: in std_logic_vector(25 downto 0);
-		sel: in std_logic;
-		F: out std_logic_vector(25 downto 0)
-	);
+port(F1, F2: in std_logic_vector(25 downto 0);
+	sel: in std_logic;
+	F: out std_logic_vector(25 downto 0));
 end mux2_1_26bits;
 
 architecture arq_mux2_1_26bits of mux2_1_26bits is

@@ -2,10 +2,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity selector is
-	port (
-		x: in  std_logic_vector(4 downto 0);
-		saida: out std_logic_vector(1 downto 0)
-	);
+port (x: in  std_logic_vector(4 downto 0);
+	saida: out std_logic_vector(1 downto 0));
 end selector;
 
 architecture converter of selector is

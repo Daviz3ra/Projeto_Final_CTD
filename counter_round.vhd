@@ -3,10 +3,10 @@ use ieee.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity counter_round is port (
-								x: out std_logic_vector(4 downto 0);
-								clock, enable, set17: in std_logic;
-								tc: out std_logic);
+entity counter_round is
+port (x: out std_logic_vector(4 downto 0);
+	clock, enable, set17: in std_logic;
+	tc: out std_logic);
 end counter_round;
 
 architecture arq_cround of counter_round is

@@ -3,10 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity Bin_BCD is
-    port (
-        BIN : in  std_logic_vector(25 downto 0);
-        BCD : out std_logic_vector(31 downto 0)
-    );
+port (BIN: in  std_logic_vector(25 downto 0);
+    BCD: out std_logic_vector(31 downto 0));
 end entity;
 
 architecture rtl of Bin_BCD is

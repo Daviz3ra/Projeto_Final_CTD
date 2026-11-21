@@ -1,17 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-  entity seq0 is 
-  port ( clock: in std_logic;
-		  reset: in std_logic;
-		  enable: in std_logic;
-		  contagem: out std_logic_vector(3 downto 0)
-		);
+entity seq0 is 
+port(clock, reset, enable: in std_logic;
+	contagem: out std_logic_vector(3 downto 0));
 	end seq0;
 	architecture arq_seq0 of seq0 is
 		type STATES is (E0, E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12, E13, E14, E15);
 		signal EA, PE: STATES;
-  begin
+begin
   
 	P1: process(clock, reset)
 	begin
@@ -20,7 +17,7 @@ use ieee.std_logic_1164.all;
 			elsif clock'event and clock= '1' and enable = '1' then
 				EA <= PE;
 			end if;
-  end process;
+end process;
   
 	P2: process(EA)
 	begin

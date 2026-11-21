@@ -1,11 +1,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity reg12 is port (
-    CLK, RST, EN: in std_logic;
+entity reg12 is
+port (CLK, RST, EN: in std_logic;
     D: in std_logic_vector(11 downto 0);
-    Q: out std_logic_vector(11 downto 0)
-    );
+    Q: out std_logic_vector(11 downto 0));
 end reg12;
 
 architecture behv of reg12 is

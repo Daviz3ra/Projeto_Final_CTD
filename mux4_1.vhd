@@ -2,14 +2,9 @@ library IEEE;
 use IEEE.Std_Logic_1164.all;
 
 entity mux4_1 is
-	port (
-		F1: in std_logic;
-		F2: in std_logic;
-		F3: in std_logic;
-		F4: in std_logic;
-		sel: in std_logic_vector(1 downto 0);
-		F: out std_logic
-	);
+port (F1, F2, F3, F4: in std_logic;
+	sel: in std_logic_vector(1 downto 0);
+	F: out std_logic);
 end mux4_1;
 
 architecture arq_mux4_1 of mux4_1 is

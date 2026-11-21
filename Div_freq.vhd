@@ -5,11 +5,9 @@ use ieee.std_logic_unsigned.all;
 -- Divisor de Frequência para entrada com Clock de 500Hz
 
 entity Div_Freq is
-    port (        
-        clk: in std_logic; -- Clock de 500 Hz
-        reset: in std_logic;
-        CLK_2Hz, CLK_3Hz, CLK_4Hz, CLK_5Hz: out std_logic
-    );
+port (clk: in std_logic; -- Clock de 500 Hz
+    reset: in std_logic;
+    CLK_2Hz, CLK_3Hz, CLK_4Hz, CLK_5Hz: out std_logic);
 end Div_Freq;
 
 architecture divisor of Div_Freq is

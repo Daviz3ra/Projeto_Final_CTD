@@ -2,10 +2,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity decod_term is
-    port (
-        X: in  std_logic_vector(4 downto 0);
-        leds: out std_logic_vector(17 downto 0)
-    );
+port (X: in  std_logic_vector(4 downto 0);
+    leds: out std_logic_vector(17 downto 0));
 end entity decod_term;
 
 architecture decodificador of decod_term is

@@ -5,11 +5,9 @@ use ieee.std_logic_unsigned.all;
 --para uso com o clock de 50MHz da placa DE2 (CLOCK_50)
 
 entity Div_Freq_DE2 is
-    port (        
-        clk: in std_logic;
-        reset: in std_logic;
-        CLK_2Hz, CLK_3Hz, CLK_4Hz, CLK_5Hz: out std_logic
-    );
+port (clk: in std_logic;
+    reset: in std_logic;
+    CLK_2Hz, CLK_3Hz, CLK_4Hz, CLK_5Hz: out std_logic);
 end Div_Freq_DE2;
 
 architecture divisor of Div_Freq_DE2 is
