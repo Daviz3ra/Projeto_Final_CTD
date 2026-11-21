@@ -11,7 +11,7 @@ architecture behv of reg12 is
 begin
     process(CLK, D, RST)
     begin
-        if RST = '0' then
+        if RST = '1' then
             Q <= "000000000000";
         elsif (CLK'event and CLK = '1') and EN = '1' then
             Q <= D;
